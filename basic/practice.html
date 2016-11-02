@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>练习算法</title>
+</head>
+<body>
+<script>
+
+// 无临时变量的交换
+function swap(a, b) {
+    b = b - a;
+    a = a + b;
+    b = a - b;
+    return [a,b];
+}
+
+console.log(swap(1,10));
+
+// 随机生成长度为 l 的数组 用于测试
+function randomArr(length){
+	var arr = [];
+	for (var i = 0; i < length; i++) {
+		arr.push(Math.floor(Math.random()*1000));
+	}
+	return arr;
+}
+
+function testSpeed(){
+	var fn = arguments[0],
+		param = [].slice.call(arguments, 1, arguments.length);
+
+	var start = new Date();
+	fn.apply(null, param);
+	console.log(new Date()-start);
+}
+
+
+// 冒泡排序
+function bubbleSort(arr, bool){
+	// var count = 0;
+
+	if(arr.length < 1){
+		return arr;
+	}
+
+	for(var j = 0,l = arr.length; j < l - 1; j++){
+		for (var i = j + 1; i < l; i++) {
+			// count++;
+			if(arr[j] > arr[i]){
+				var tem = arr[i];
+				arr[i]= arr[j];
+				arr[j] = tem;
+			}
+		}
+	}
+	// console.log(count);
+	return arr;
+}
+
+
+// 冒泡排序 测试
+// console.log( bubbleSort(arr) );
+
+// 快速排序
+// var count = 0;
+function quickSort(arr){
+
+	// count++;
+	if(arr.length < 1){
+		return arr;
+	}
+	var leftArr = [],
+		rightArr = [],
+		q = arr[0];
+
+	for (var i = 1, l = arr.length; i < l; i++) {
+		if(arr[i] < q){
+			leftArr.push(arr[i]);
+		}else{
+			rightArr.push(arr[i]);
+		}
+	}
+
+	return [].concat(quickSort(leftArr), [q], quickSort(rightArr));
+}
+
+// 快速排序 测试
+// console.log( quickSort(arr) );
+// console.log(count);
+
+
+var arr = randomArr(50000);
+// testSpeed(quickSort, arr);
+// testSpeed(bubbleSort, arr);
+
+
+// 字符串回文
+function reverseStr(str){
+	// 
+	return str.split('').reverse().join('');
+}
+// console.log(reverseStr('abcdef'));
+
+// 生成随机字符串
+function boreString(len){
+	var library = 'abcdefghijklmnopqrstuvwxyz0123456789',
+		str = '';
+
+	for (var i = 0; i < len; i++) {
+		str+=library.charAt(Math.floor(Math.random()*library.length));
+	}
+
+	return str;
+}
+
+// 2
+function boreString2(len){
+	var library = 'abcdefghijklmnopqrstuvwxyz0123456789',
+		arr = [];
+
+	for (var i = 0; i < len; i++) {
+		arr.push(library.charAt(Math.floor(Math.random()*library.length)));
+	}
+
+	return arr.join('');
+}
+// testSpeed(boreString, 1000000);
+// testSpeed(boreString, 1000000);
+testSpeed(boreString2, 1000000);
+testSpeed(boreString2, 1000000);
+testSpeed(boreString2, 1000000);
+testSpeed(boreString2, 1000000);
+// console.log(boreString(10));
+
+</script>
+		
+</body>
+</html>
