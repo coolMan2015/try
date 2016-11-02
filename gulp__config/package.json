@@ -1,0 +1,21 @@
+{
+  "name": "buoumall_raise",
+  "version": "1.0.0",
+  "description": "众筹",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "xucheng",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^13.0.1",
+    "gulp": "^3.9.1",
+    "gulp-jade": "^1.1.0",
+    "gulp-ruby-sass": "^2.0.6",
+    "gulp-sass": "^2.3.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "jade": "^1.11.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}

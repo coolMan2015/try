@@ -1,0 +1,6 @@
+包含 browserify gulp-ruby-sass/gulp-sass jade
+
+
+输出目录配置：conf/dev.env.js
+
+项目js配置：BuouMallRaise.config.js
